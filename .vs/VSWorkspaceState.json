@@ -1,0 +1,10 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\cnnClassifier",
+    "\\src\\cnnClassifier\\utils"
+  ],
+  "SelectedNode": "\\src\\cnnClassifier\\utils\\common.py",
+  "PreviewInSolutionExplorer": false
+}
