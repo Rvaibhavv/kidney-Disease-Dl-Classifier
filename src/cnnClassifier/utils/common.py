@@ -31,14 +31,12 @@ def create_directories(path_to_directories: list, verbose=True):
             logger.info(f"created directory at: {path}")
 
 
-@ensure_annotations
-def save_json(path: Path,data: dict)->ConfigBox:
-
-    with open(path,"w") as f:
-        json.dump(data, f,indent=4)
+def save_json(path: Path, data: dict):
     
-    logger.info(f"json file is saved {path}")
+    with open(path, "w") as f:
+        json.dump(data, f, indent=4)
 
+    logger.info(f"json file saved at: {path}")
 
 
 @ensure_annotations

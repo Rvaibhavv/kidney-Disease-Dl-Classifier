@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/09181dcc809746dd8650348e50072c7d/artifacts
+end_time: 1706103285754
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 09181dcc809746dd8650348e50072c7d
+run_name: respected-gnat-993
+run_uuid: 09181dcc809746dd8650348e50072c7d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1706103271562
+status: 4
+tags: []
+user_id: rvaib
