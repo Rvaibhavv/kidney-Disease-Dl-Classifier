@@ -1,3 +1,5 @@
 cython_debug/
 
 artifacts/*
+ignoring.txt
+mlruns/*

@@ -775,3 +775,343 @@ mlflow.exceptions.MlflowException: The configured tracking uri scheme: 'file' is
 [2024-01-24 20:16:24,224: INFO: common: json file saved at: scores.json]
 [2024-01-24 20:16:27,528: WARNING: save: Found untraced functions such as _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op while saving (showing 5 of 13). These functions will not be directly callable after loading.]
 [2024-01-24 20:16:28,320: INFO: builder_impl: Assets written to: C:\Users\rvaib\AppData\Local\Temp\tmp74p_zuer\model\data\model\assets]
+[2024-01-24 20:26:30,058: INFO: main: .....stage Data ingestion stage started ....]
+[2024-01-24 20:26:30,069: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2024-01-24 20:26:30,069: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-01-24 20:26:30,069: INFO: common: created directory at: artifacts]
+[2024-01-24 20:26:30,069: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-01-24 20:26:30,069: INFO: data_ingestion: downloading dataset fromhttps://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2024-01-24 20:26:39,506: INFO: data_ingestion: downloaded dataset fromhttps://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2024-01-24 20:26:39,910: INFO: main: ..... stage Data ingestion stage completed .....]
+[2024-01-24 20:26:39,910: INFO: main: .....stage prepare base model started ....]
+[2024-01-24 20:26:39,925: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2024-01-24 20:26:39,925: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-01-24 20:26:39,925: INFO: common: created directory at: artifacts]
+[2024-01-24 20:26:39,925: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-01-24 20:26:41,990: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2024-01-24 20:26:42,510: INFO: main: ..... stage prepare base model completed .....]
+[2024-01-24 20:26:42,510: INFO: main: .....stage TRAINING started ....]
+[2024-01-24 20:26:42,510: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2024-01-24 20:26:42,520: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-01-24 20:26:42,520: INFO: common: created directory at: artifacts]
+[2024-01-24 20:26:42,520: INFO: common: created directory at: artifacts\training]
+[2024-01-24 20:27:06,396: INFO: main: ..... stage TRAINING completed .....]
+[2024-01-24 20:27:06,396: INFO: main: .....stage model evaluation started ....]
+[2024-01-24 20:27:06,396: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2024-01-24 20:27:06,408: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-01-24 20:27:06,413: INFO: common: created directory at: artifacts]
+[2024-01-24 20:27:10,945: INFO: common: json file saved at: scores.json]
+[2024-01-24 20:27:13,100: WARNING: save: Found untraced functions such as _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op while saving (showing 5 of 13). These functions will not be directly callable after loading.]
+[2024-01-24 20:27:14,645: INFO: builder_impl: Assets written to: C:\Users\rvaib\AppData\Local\Temp\tmpzfk_2xn6\model\data\model\assets]
+[2024-01-24 20:27:31,022: ERROR: main: The configured tracking uri scheme: 'file' is invalid for use with the proxy mlflow-artifact scheme. The allowed tracking schemes are: {'https', 'http'}]
+Traceback (most recent call last):
+  File "main.py", line 48, in <module>
+    obj.main()
+  File "c:\users\rvaib\onedrive\desktop\kidney-disease-dl-classifier\src\cnnClassifier\pipeline\stage_04_model_evaluation.py", line 17, in main
+    evaluation.log_into_mlflow()
+  File "c:\users\rvaib\onedrive\desktop\kidney-disease-dl-classifier\src\cnnClassifier\components\model_evaluation_mlflow.py", line 71, in log_into_mlflow
+    mlflow.keras.log_model(self.model, "model")
+  File "C:\Users\rvaib\.conda\envs\gpuenv\lib\site-packages\mlflow\tensorflow\__init__.py", line 222, in log_model
+    return Model.log(
+  File "C:\Users\rvaib\.conda\envs\gpuenv\lib\site-packages\mlflow\models\model.py", line 552, in log
+    mlflow.tracking.fluent.log_artifacts(local_path, mlflow_model.artifact_path)
+  File "C:\Users\rvaib\.conda\envs\gpuenv\lib\site-packages\mlflow\tracking\fluent.py", line 817, in log_artifacts
+    MlflowClient().log_artifacts(run_id, local_dir, artifact_path)
+  File "C:\Users\rvaib\.conda\envs\gpuenv\lib\site-packages\mlflow\tracking\client.py", line 1069, in log_artifacts
+    self._tracking_client.log_artifacts(run_id, local_dir, artifact_path)
+  File "C:\Users\rvaib\.conda\envs\gpuenv\lib\site-packages\mlflow\tracking\_tracking_service\client.py", line 448, in log_artifacts
+    self._get_artifact_repo(run_id).log_artifacts(local_dir, artifact_path)
+  File "C:\Users\rvaib\.conda\envs\gpuenv\lib\site-packages\mlflow\tracking\_tracking_service\client.py", line 416, in _get_artifact_repo
+    artifact_repo = get_artifact_repository(artifact_uri)
+  File "C:\Users\rvaib\.conda\envs\gpuenv\lib\site-packages\mlflow\store\artifact\artifact_repository_registry.py", line 106, in get_artifact_repository
+    return _artifact_repository_registry.get_artifact_repository(artifact_uri)
+  File "C:\Users\rvaib\.conda\envs\gpuenv\lib\site-packages\mlflow\store\artifact\artifact_repository_registry.py", line 72, in get_artifact_repository
+    return repository(artifact_uri)
+  File "C:\Users\rvaib\.conda\envs\gpuenv\lib\site-packages\mlflow\store\artifact\mlflow_artifacts_repo.py", line 45, in __init__
+    super().__init__(self.resolve_uri(artifact_uri, get_tracking_uri()))
+  File "C:\Users\rvaib\.conda\envs\gpuenv\lib\site-packages\mlflow\store\artifact\mlflow_artifacts_repo.py", line 59, in resolve_uri
+    _validate_uri_scheme(track_parse.scheme)
+  File "C:\Users\rvaib\.conda\envs\gpuenv\lib\site-packages\mlflow\store\artifact\mlflow_artifacts_repo.py", line 35, in _validate_uri_scheme
+    raise MlflowException(
+mlflow.exceptions.MlflowException: The configured tracking uri scheme: 'file' is invalid for use with the proxy mlflow-artifact scheme. The allowed tracking schemes are: {'https', 'http'}
+[2024-01-24 21:30:38,540: INFO: main: .....stage Data ingestion stage started ....]
+[2024-01-24 21:30:38,540: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2024-01-24 21:30:38,540: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-01-24 21:30:38,540: INFO: common: created directory at: artifacts]
+[2024-01-24 21:30:38,540: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-01-24 21:30:38,540: INFO: data_ingestion: downloading dataset fromhttps://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2024-01-24 21:31:43,027: INFO: data_ingestion: downloaded dataset fromhttps://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2024-01-24 21:31:43,458: INFO: main: ..... stage Data ingestion stage completed .....]
+[2024-01-24 21:31:43,458: INFO: main: .....stage prepare base model started ....]
+[2024-01-24 21:31:43,465: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2024-01-24 21:31:43,465: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-01-24 21:31:43,465: INFO: common: created directory at: artifacts]
+[2024-01-24 21:31:43,465: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-01-24 21:31:45,414: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2024-01-24 21:31:45,751: INFO: main: ..... stage prepare base model completed .....]
+[2024-01-24 21:31:45,751: INFO: main: .....stage TRAINING started ....]
+[2024-01-24 21:31:45,751: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2024-01-24 21:31:45,756: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-01-24 21:31:45,756: INFO: common: created directory at: artifacts]
+[2024-01-24 21:31:45,756: INFO: common: created directory at: artifacts\training]
+[2024-01-24 21:31:58,718: INFO: main: ..... stage TRAINING completed .....]
+[2024-01-24 21:31:58,718: INFO: main: .....stage model evaluation started ....]
+[2024-01-24 21:31:58,718: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2024-01-24 21:31:58,718: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-01-24 21:31:58,718: INFO: common: created directory at: artifacts]
+[2024-01-24 21:32:01,493: INFO: common: json file saved at: scores.json]
+[2024-01-24 21:32:02,622: WARNING: save: Found untraced functions such as _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op while saving (showing 5 of 13). These functions will not be directly callable after loading.]
+[2024-01-24 21:32:03,192: INFO: builder_impl: Assets written to: C:\Users\rvaib\AppData\Local\Temp\tmpt38mmcro\model\data\model\assets]
+[2024-01-24 21:32:09,538: ERROR: main: The configured tracking uri scheme: 'file' is invalid for use with the proxy mlflow-artifact scheme. The allowed tracking schemes are: {'http', 'https'}]
+Traceback (most recent call last):
+  File "main.py", line 48, in <module>
+    obj.main()
+  File "c:\users\rvaib\onedrive\desktop\kidney-disease-dl-classifier\src\cnnClassifier\pipeline\stage_04_model_evaluation.py", line 17, in main
+    evaluation.log_into_mlflow()
+  File "c:\users\rvaib\onedrive\desktop\kidney-disease-dl-classifier\src\cnnClassifier\components\model_evaluation_mlflow.py", line 71, in log_into_mlflow
+    mlflow.keras.log_model(self.model, "model")
+  File "C:\Users\rvaib\.conda\envs\gpuenv\lib\site-packages\mlflow\tensorflow\__init__.py", line 222, in log_model
+    return Model.log(
+  File "C:\Users\rvaib\.conda\envs\gpuenv\lib\site-packages\mlflow\models\model.py", line 552, in log
+    mlflow.tracking.fluent.log_artifacts(local_path, mlflow_model.artifact_path)
+  File "C:\Users\rvaib\.conda\envs\gpuenv\lib\site-packages\mlflow\tracking\fluent.py", line 817, in log_artifacts
+    MlflowClient().log_artifacts(run_id, local_dir, artifact_path)
+  File "C:\Users\rvaib\.conda\envs\gpuenv\lib\site-packages\mlflow\tracking\client.py", line 1069, in log_artifacts
+    self._tracking_client.log_artifacts(run_id, local_dir, artifact_path)
+  File "C:\Users\rvaib\.conda\envs\gpuenv\lib\site-packages\mlflow\tracking\_tracking_service\client.py", line 448, in log_artifacts
+    self._get_artifact_repo(run_id).log_artifacts(local_dir, artifact_path)
+  File "C:\Users\rvaib\.conda\envs\gpuenv\lib\site-packages\mlflow\tracking\_tracking_service\client.py", line 416, in _get_artifact_repo
+    artifact_repo = get_artifact_repository(artifact_uri)
+  File "C:\Users\rvaib\.conda\envs\gpuenv\lib\site-packages\mlflow\store\artifact\artifact_repository_registry.py", line 106, in get_artifact_repository
+    return _artifact_repository_registry.get_artifact_repository(artifact_uri)
+  File "C:\Users\rvaib\.conda\envs\gpuenv\lib\site-packages\mlflow\store\artifact\artifact_repository_registry.py", line 72, in get_artifact_repository
+    return repository(artifact_uri)
+  File "C:\Users\rvaib\.conda\envs\gpuenv\lib\site-packages\mlflow\store\artifact\mlflow_artifacts_repo.py", line 45, in __init__
+    super().__init__(self.resolve_uri(artifact_uri, get_tracking_uri()))
+  File "C:\Users\rvaib\.conda\envs\gpuenv\lib\site-packages\mlflow\store\artifact\mlflow_artifacts_repo.py", line 59, in resolve_uri
+    _validate_uri_scheme(track_parse.scheme)
+  File "C:\Users\rvaib\.conda\envs\gpuenv\lib\site-packages\mlflow\store\artifact\mlflow_artifacts_repo.py", line 35, in _validate_uri_scheme
+    raise MlflowException(
+mlflow.exceptions.MlflowException: The configured tracking uri scheme: 'file' is invalid for use with the proxy mlflow-artifact scheme. The allowed tracking schemes are: {'http', 'https'}
+[2024-01-24 21:38:58,415: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2024-01-24 21:38:58,418: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-01-24 21:38:58,418: INFO: common: created directory at: artifacts]
+[2024-01-24 21:39:06,001: INFO: common: json file saved at: scores.json]
+[2024-01-24 21:39:08,921: WARNING: save: Found untraced functions such as _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op while saving (showing 5 of 13). These functions will not be directly callable after loading.]
+[2024-01-24 21:39:09,347: INFO: builder_impl: Assets written to: C:\Users\rvaib\AppData\Local\Temp\tmpt0irko23\model\data\model\assets]
+[2024-01-24 21:41:51,590: INFO: main: .....stage Data ingestion stage started ....]
+[2024-01-24 21:41:51,590: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2024-01-24 21:41:51,595: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-01-24 21:41:51,595: INFO: common: created directory at: artifacts]
+[2024-01-24 21:41:51,595: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-01-24 21:41:51,596: INFO: data_ingestion: downloading dataset fromhttps://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2024-01-24 21:42:05,867: INFO: data_ingestion: downloaded dataset fromhttps://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2024-01-24 21:42:06,289: INFO: main: ..... stage Data ingestion stage completed .....]
+[2024-01-24 21:42:06,289: INFO: main: .....stage prepare base model started ....]
+[2024-01-24 21:42:06,289: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2024-01-24 21:42:06,289: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-01-24 21:42:06,289: INFO: common: created directory at: artifacts]
+[2024-01-24 21:42:06,289: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-01-24 21:42:08,376: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2024-01-24 21:42:08,746: INFO: main: ..... stage prepare base model completed .....]
+[2024-01-24 21:42:08,746: INFO: main: .....stage TRAINING started ....]
+[2024-01-24 21:42:08,746: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2024-01-24 21:42:08,746: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-01-24 21:42:08,746: INFO: common: created directory at: artifacts]
+[2024-01-24 21:42:08,756: INFO: common: created directory at: artifacts\training]
+[2024-01-24 21:42:22,290: INFO: main: ..... stage TRAINING completed .....]
+[2024-01-24 21:42:22,290: INFO: main: .....stage model evaluation started ....]
+[2024-01-24 21:42:22,290: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2024-01-24 21:42:22,300: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-01-24 21:42:22,300: INFO: common: created directory at: artifacts]
+[2024-01-24 21:42:25,095: INFO: common: json file saved at: scores.json]
+[2024-01-24 21:42:25,095: INFO: common: json file saved at: scores.json]
+[2024-01-24 21:42:31,714: WARNING: save: Found untraced functions such as _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op while saving (showing 5 of 13). These functions will not be directly callable after loading.]
+[2024-01-24 21:42:32,201: INFO: builder_impl: Assets written to: C:\Users\rvaib\AppData\Local\Temp\tmpnu2g24hg\model\data\model\assets]
+[2024-01-24 21:43:37,779: INFO: main: ..... stage model evaluation completed .....]
+[2024-01-24 21:48:44,947: INFO: main: .....stage Data ingestion stage started ....]
+[2024-01-24 21:48:44,947: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2024-01-24 21:48:44,953: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-01-24 21:48:44,954: INFO: common: created directory at: artifacts]
+[2024-01-24 21:48:44,954: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-01-24 21:48:44,954: INFO: data_ingestion: downloading dataset fromhttps://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2024-01-24 21:48:44,961: ERROR: main: HTTPSConnectionPool(host='drive.google.com', port=443): Max retries exceeded with url: /uc?id=1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000001E2B0C60460>: Failed to resolve 'drive.google.com' ([Errno 11001] getaddrinfo failed)"))]
+Traceback (most recent call last):
+  File "C:\Users\rvaib\.conda\envs\gpuenv\lib\site-packages\urllib3\connection.py", line 203, in _new_conn
+    sock = connection.create_connection(
+  File "C:\Users\rvaib\.conda\envs\gpuenv\lib\site-packages\urllib3\util\connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "C:\Users\rvaib\.conda\envs\gpuenv\lib\socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\rvaib\.conda\envs\gpuenv\lib\site-packages\urllib3\connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "C:\Users\rvaib\.conda\envs\gpuenv\lib\site-packages\urllib3\connectionpool.py", line 491, in _make_request
+    raise new_e
+  File "C:\Users\rvaib\.conda\envs\gpuenv\lib\site-packages\urllib3\connectionpool.py", line 467, in _make_request
+    self._validate_conn(conn)
+  File "C:\Users\rvaib\.conda\envs\gpuenv\lib\site-packages\urllib3\connectionpool.py", line 1096, in _validate_conn
+    conn.connect()
+  File "C:\Users\rvaib\.conda\envs\gpuenv\lib\site-packages\urllib3\connection.py", line 611, in connect
+    self.sock = sock = self._new_conn()
+  File "C:\Users\rvaib\.conda\envs\gpuenv\lib\site-packages\urllib3\connection.py", line 210, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: <urllib3.connection.HTTPSConnection object at 0x000001E2B0C60460>: Failed to resolve 'drive.google.com' ([Errno 11001] getaddrinfo failed)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\rvaib\.conda\envs\gpuenv\lib\site-packages\requests\adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "C:\Users\rvaib\.conda\envs\gpuenv\lib\site-packages\urllib3\connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+  File "C:\Users\rvaib\.conda\envs\gpuenv\lib\site-packages\urllib3\util\retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='drive.google.com', port=443): Max retries exceeded with url: /uc?id=1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000001E2B0C60460>: Failed to resolve 'drive.google.com' ([Errno 11001] getaddrinfo failed)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "main.py", line 13, in <module>
+    obj.main()
+  File "c:\users\rvaib\onedrive\desktop\kidney-disease-dl-classifier\src\cnnClassifier\pipeline\stage_01_data_ingestion.py", line 16, in main
+    data_ingestion.download_file()
+  File "c:\users\rvaib\onedrive\desktop\kidney-disease-dl-classifier\src\cnnClassifier\components\data_ingestion.py", line 24, in download_file
+    raise e
+  File "c:\users\rvaib\onedrive\desktop\kidney-disease-dl-classifier\src\cnnClassifier\components\data_ingestion.py", line 21, in download_file
+    gdown.download(prefix+file_id,zip_download_dir)
+  File "C:\Users\rvaib\.conda\envs\gpuenv\lib\site-packages\gdown\download.py", line 157, in download
+    res = sess.get(url, stream=True, verify=verify)
+  File "C:\Users\rvaib\.conda\envs\gpuenv\lib\site-packages\requests\sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+  File "C:\Users\rvaib\.conda\envs\gpuenv\lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\rvaib\.conda\envs\gpuenv\lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\rvaib\.conda\envs\gpuenv\lib\site-packages\requests\adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='drive.google.com', port=443): Max retries exceeded with url: /uc?id=1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000001E2B0C60460>: Failed to resolve 'drive.google.com' ([Errno 11001] getaddrinfo failed)"))
+[2024-01-24 21:50:04,855: INFO: main: .....stage Data ingestion stage started ....]
+[2024-01-24 21:50:04,857: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2024-01-24 21:50:04,858: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-01-24 21:50:04,858: INFO: common: created directory at: artifacts]
+[2024-01-24 21:50:04,858: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-01-24 21:50:04,859: INFO: data_ingestion: downloading dataset fromhttps://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2024-01-24 21:50:16,212: INFO: data_ingestion: downloaded dataset fromhttps://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2024-01-24 21:50:16,706: INFO: main: ..... stage Data ingestion stage completed .....]
+[2024-01-24 21:50:16,706: INFO: main: .....stage prepare base model started ....]
+[2024-01-24 21:50:16,706: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2024-01-24 21:50:16,706: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-01-24 21:50:16,706: INFO: common: created directory at: artifacts]
+[2024-01-24 21:50:16,706: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-01-24 21:50:19,471: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2024-01-24 21:50:19,886: INFO: main: ..... stage prepare base model completed .....]
+[2024-01-24 21:50:19,886: INFO: main: .....stage TRAINING started ....]
+[2024-01-24 21:50:19,896: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2024-01-24 21:50:19,896: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-01-24 21:50:19,896: INFO: common: created directory at: artifacts]
+[2024-01-24 21:50:19,896: INFO: common: created directory at: artifacts\training]
+[2024-01-24 21:50:35,628: INFO: main: ..... stage TRAINING completed .....]
+[2024-01-24 21:50:35,628: INFO: main: .....stage model evaluation started ....]
+[2024-01-24 21:50:35,628: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2024-01-24 21:50:35,628: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-01-24 21:50:35,628: INFO: common: created directory at: artifacts]
+[2024-01-24 21:50:38,498: INFO: common: json file saved at: scores.json]
+[2024-01-24 21:50:38,498: INFO: common: json file saved at: scores.json]
+[2024-01-24 21:50:39,558: WARNING: save: Found untraced functions such as _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op while saving (showing 5 of 13). These functions will not be directly callable after loading.]
+[2024-01-24 21:50:40,200: INFO: builder_impl: Assets written to: C:\Users\rvaib\AppData\Local\Temp\tmpegmtn2_a\model\data\model\assets]
+[2024-01-24 21:50:46,821: ERROR: main: The configured tracking uri scheme: 'file' is invalid for use with the proxy mlflow-artifact scheme. The allowed tracking schemes are: {'https', 'http'}]
+Traceback (most recent call last):
+  File "main.py", line 48, in <module>
+    obj.main()
+  File "c:\users\rvaib\onedrive\desktop\kidney-disease-dl-classifier\src\cnnClassifier\pipeline\stage_04_model_evaluation.py", line 21, in main
+    evaluation.log_into_mlflow()
+  File "c:\users\rvaib\onedrive\desktop\kidney-disease-dl-classifier\src\cnnClassifier\components\model_evaluation_mlflow.py", line 71, in log_into_mlflow
+    mlflow.keras.log_model(self.model, "model")
+  File "C:\Users\rvaib\.conda\envs\gpuenv\lib\site-packages\mlflow\tensorflow\__init__.py", line 222, in log_model
+    return Model.log(
+  File "C:\Users\rvaib\.conda\envs\gpuenv\lib\site-packages\mlflow\models\model.py", line 552, in log
+    mlflow.tracking.fluent.log_artifacts(local_path, mlflow_model.artifact_path)
+  File "C:\Users\rvaib\.conda\envs\gpuenv\lib\site-packages\mlflow\tracking\fluent.py", line 817, in log_artifacts
+    MlflowClient().log_artifacts(run_id, local_dir, artifact_path)
+  File "C:\Users\rvaib\.conda\envs\gpuenv\lib\site-packages\mlflow\tracking\client.py", line 1069, in log_artifacts
+    self._tracking_client.log_artifacts(run_id, local_dir, artifact_path)
+  File "C:\Users\rvaib\.conda\envs\gpuenv\lib\site-packages\mlflow\tracking\_tracking_service\client.py", line 448, in log_artifacts
+    self._get_artifact_repo(run_id).log_artifacts(local_dir, artifact_path)
+  File "C:\Users\rvaib\.conda\envs\gpuenv\lib\site-packages\mlflow\tracking\_tracking_service\client.py", line 416, in _get_artifact_repo
+    artifact_repo = get_artifact_repository(artifact_uri)
+  File "C:\Users\rvaib\.conda\envs\gpuenv\lib\site-packages\mlflow\store\artifact\artifact_repository_registry.py", line 106, in get_artifact_repository
+    return _artifact_repository_registry.get_artifact_repository(artifact_uri)
+  File "C:\Users\rvaib\.conda\envs\gpuenv\lib\site-packages\mlflow\store\artifact\artifact_repository_registry.py", line 72, in get_artifact_repository
+    return repository(artifact_uri)
+  File "C:\Users\rvaib\.conda\envs\gpuenv\lib\site-packages\mlflow\store\artifact\mlflow_artifacts_repo.py", line 45, in __init__
+    super().__init__(self.resolve_uri(artifact_uri, get_tracking_uri()))
+  File "C:\Users\rvaib\.conda\envs\gpuenv\lib\site-packages\mlflow\store\artifact\mlflow_artifacts_repo.py", line 59, in resolve_uri
+    _validate_uri_scheme(track_parse.scheme)
+  File "C:\Users\rvaib\.conda\envs\gpuenv\lib\site-packages\mlflow\store\artifact\mlflow_artifacts_repo.py", line 35, in _validate_uri_scheme
+    raise MlflowException(
+mlflow.exceptions.MlflowException: The configured tracking uri scheme: 'file' is invalid for use with the proxy mlflow-artifact scheme. The allowed tracking schemes are: {'https', 'http'}
+[2024-01-24 21:54:13,018: INFO: main: .....stage Data ingestion stage started ....]
+[2024-01-24 21:54:13,020: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2024-01-24 21:54:13,021: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-01-24 21:54:13,022: INFO: common: created directory at: artifacts]
+[2024-01-24 21:54:13,022: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-01-24 21:54:13,022: INFO: data_ingestion: downloading dataset fromhttps://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2024-01-24 21:55:18,070: INFO: data_ingestion: downloaded dataset fromhttps://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2024-01-24 21:55:19,018: INFO: main: ..... stage Data ingestion stage completed .....]
+[2024-01-24 21:55:19,018: INFO: main: .....stage prepare base model started ....]
+[2024-01-24 21:55:19,022: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2024-01-24 21:55:19,024: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-01-24 21:55:19,025: INFO: common: created directory at: artifacts]
+[2024-01-24 21:55:19,025: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-01-24 21:55:20,829: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2024-01-24 21:55:21,236: INFO: main: ..... stage prepare base model completed .....]
+[2024-01-24 21:55:21,236: INFO: main: .....stage TRAINING started ....]
+[2024-01-24 21:55:21,236: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2024-01-24 21:55:21,246: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-01-24 21:55:21,246: INFO: common: created directory at: artifacts]
+[2024-01-24 21:55:21,246: INFO: common: created directory at: artifacts\training]
+[2024-01-24 21:55:33,211: INFO: main: ..... stage TRAINING completed .....]
+[2024-01-24 21:55:33,231: INFO: main: .....stage model evaluation started ....]
+[2024-01-24 21:55:33,231: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2024-01-24 21:55:33,231: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-01-24 21:55:33,231: INFO: common: created directory at: artifacts]
+[2024-01-24 21:55:36,035: INFO: common: json file saved at: scores.json]
+[2024-01-24 21:55:36,035: INFO: common: json file saved at: scores.json]
+[2024-01-24 21:55:38,684: WARNING: save: Found untraced functions such as _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op while saving (showing 5 of 13). These functions will not be directly callable after loading.]
+[2024-01-24 21:55:39,259: INFO: builder_impl: Assets written to: C:\Users\rvaib\AppData\Local\Temp\tmpum_uz9_m\model\data\model\assets]
+[2024-01-24 21:56:18,466: INFO: main: ..... stage model evaluation completed .....]
+[2024-01-24 22:01:40,623: INFO: main: .....stage Data ingestion stage started ....]
+[2024-01-24 22:01:40,623: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2024-01-24 22:01:40,623: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-01-24 22:01:40,623: INFO: common: created directory at: artifacts]
+[2024-01-24 22:01:40,623: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-01-24 22:01:40,623: INFO: data_ingestion: downloading dataset fromhttps://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2024-01-24 22:02:39,666: INFO: data_ingestion: downloaded dataset fromhttps://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2024-01-24 22:02:40,079: INFO: main: ..... stage Data ingestion stage completed .....]
+[2024-01-24 22:02:40,094: INFO: main: .....stage prepare base model started ....]
+[2024-01-24 22:02:40,094: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2024-01-24 22:02:40,094: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-01-24 22:02:40,110: INFO: common: created directory at: artifacts]
+[2024-01-24 22:02:40,110: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-01-24 22:02:41,705: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2024-01-24 22:02:42,045: INFO: main: ..... stage prepare base model completed .....]
+[2024-01-24 22:02:42,045: INFO: main: .....stage TRAINING started ....]
+[2024-01-24 22:02:42,045: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2024-01-24 22:02:42,055: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-01-24 22:02:42,055: INFO: common: created directory at: artifacts]
+[2024-01-24 22:02:42,055: INFO: common: created directory at: artifacts\training]
+[2024-01-24 22:02:53,866: INFO: main: ..... stage TRAINING completed .....]
+[2024-01-24 22:02:53,866: INFO: main: .....stage model evaluation started ....]
+[2024-01-24 22:02:53,866: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2024-01-24 22:02:53,866: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-01-24 22:02:53,866: INFO: common: created directory at: artifacts]
+[2024-01-24 22:02:56,517: INFO: common: json file saved at: scores.json]
+[2024-01-24 22:02:56,520: INFO: common: json file saved at: scores.json]
+[2024-01-24 22:02:59,357: WARNING: save: Found untraced functions such as _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op while saving (showing 5 of 13). These functions will not be directly callable after loading.]
+[2024-01-24 22:03:00,007: INFO: builder_impl: Assets written to: C:\Users\rvaib\AppData\Local\Temp\tmpv7afcbv0\model\data\model\assets]
+[2024-01-24 22:03:39,646: INFO: main: ..... stage model evaluation completed .....]
