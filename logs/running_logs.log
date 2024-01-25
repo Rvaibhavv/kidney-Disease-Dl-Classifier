@@ -1247,3 +1247,12 @@ TypeError: main() missing 1 required positional argument: 'self'
 [2024-01-25 18:23:38,079: WARNING: save: Found untraced functions such as _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op while saving (showing 5 of 13). These functions will not be directly callable after loading.]
 [2024-01-25 18:23:39,258: INFO: builder_impl: Assets written to: C:\Users\rvaib\AppData\Local\Temp\tmp0onrrz3b\model\data\model\assets]
 [2024-01-25 18:24:22,710: INFO: main: ..... stage model evaluation completed .....]
+[2024-01-25 19:05:44,292: INFO: _internal: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.1.107:8080]
+[2024-01-25 19:05:44,308: INFO: _internal: [33mPress CTRL+C to quit[0m]
+[2024-01-25 19:05:59,364: INFO: _internal: 127.0.0.1 - - [25/Jan/2024 19:05:59] "GET / HTTP/1.1" 200 -]
+[2024-01-25 19:07:50,428: INFO: _internal: 127.0.0.1 - - [25/Jan/2024 19:07:50] "[33mPOST /predict HTTP/1.1[0m" 404 -]
+[2024-01-25 19:09:24,468: INFO: _internal: 127.0.0.1 - - [25/Jan/2024 19:09:24] "GET / HTTP/1.1" 200 -]
+[2024-01-25 19:09:32,555: INFO: _internal: 127.0.0.1 - - [25/Jan/2024 19:09:32] "[33mPOST /predict HTTP/1.1[0m" 404 -]
